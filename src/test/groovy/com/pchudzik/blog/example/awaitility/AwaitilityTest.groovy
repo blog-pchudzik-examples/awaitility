@@ -31,8 +31,6 @@ class AwaitilityTest extends Specification {
                 .until(
                         { messageRepository.count() },
                         equalTo(numberOfMessages))
-        and:
-        messageRepository.findAll().size() == 10
 
         cleanup:
         [consumer, producer, coordinator].each { it.close() }
@@ -57,9 +55,6 @@ class AwaitilityTest extends Specification {
                 .until(
                         { messageRepository.count() },
                         equalTo(numberOfMessages))
-
-        and:
-        messageRepository.findAll().size() == 10
 
         cleanup:
         [consumer, producer, coordinator].each { it.close() }
